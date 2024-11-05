@@ -16,5 +16,6 @@ for i in range(1, 6):
     plt.grid(which='major', color='black')
     # включаем дополнительную сетку
     plt.grid(which='minor', linestyle=':', color='lightgray')
+    plt.title("Count of points " + f[0])
     plt.tight_layout()
 plt.show()
