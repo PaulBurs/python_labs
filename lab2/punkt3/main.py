@@ -32,11 +32,12 @@ for group in group_out:
 #print(group_faculty)
 #Создаем фигуру с тремя подграфиками
 fig, axs = plt.subplots(2, 1, figsize=(12, 6))
-categories_faculty = list(group_faculty.keys())
-categories_out = list(group_out.keys())
-mean_faculty = [group_faculty[group] for group in group_faculty]
-mean_out = [group_out[group] for group in group_out]
-
+categories_faculty = [str(i) for i in list(group_faculty.keys())]
+categories_out = [str(i) for i in list(group_out.keys())]
+mean_faculty = [(group_faculty[group]) for group in group_faculty]
+mean_out = [(group_out[group]) for group in group_out]
+#print(categories_faculty)
+#print(mean_faculty)
 axs[0].bar(categories_faculty, mean_faculty, color='skyblue')
 axs[0].set_title('Mean of faculty group')
 axs[0].set_xlabel('Faculty group')
