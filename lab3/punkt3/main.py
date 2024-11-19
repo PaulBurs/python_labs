@@ -15,7 +15,11 @@ u[0] = u_0
 evolution_matrix = np.eye(size) - 0.5 * A
 
 # Вычисление всех шагов эволюции
-powers = np.array([np.linalg.matrix_power(evolution_matrix, i) for i in range(256)])
+powers = np.zeros((256, size, size))
+#powers = np.array([np.linalg.matrix_power(evolution_matrix, i) for i in range(256)])
+powers[0] = np.eye(size)
+for i in range(1, 256):
+    powers[i] = (powers[i-1] @ evolution_matrix)
 u = np.tensordot(powers, u_0, axes=(2, 0))
 
 # Создание фигуры и осей для графика
